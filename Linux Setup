@@ -1,0 +1,104 @@
+This Was fork of some original instructions from someone who helped me set up my node originally..i have explained and expanded on this to make it easier for people to read and digest this should help even the linux noob get a node up and running 
+
+
+Before we begin this process we will need to open up some ports on your router and set a static ip address for the machine to allow connections to and from your node this is pretty simple and I will help you through it 
+
+Router port access and ip setup..
+
+1 - Go to 192.168.0.1 in your web browser
+2 - Log in to your router (password for access is usually on the bottom of the router)
+3 - Go to DCHP settings - in here you should be able to see all machines connected to your router
+4 - Select your machine and then choose a static ip address.. usually will let you change the last 2 digits for example 192.168.0.69 (or whatever you want)
+    just ensure this becomes a static ip for this machine and remeber it we will need it for step7 now and step 10 later on ..
+5 - After this you want to go into the "port forwarding" section of the router (could be in the security tab)
+6 - Once here you want to create a new rule
+7 - In this rule you want to choose the fixed ip from step 4 and then enter the numbers 22556 in all available start and end ports, select Both .. From the protocol menu .. then enable it.. 
+
+if you have followed these steps correctly and have the ports open and ip configured we will have no issues later on..
+
+Lets move on to the goodies ...
+
+Dogecoin Install...
+
+Step 1. Download Dogecoin 
+
+go to https://github.com/dogecoin/dogecoin/releases/tag/v1.14.7 and click download.
+
+If you're on a PC you can use one of the x86_64 binaries(files), if you're on a rapsberry Pi you can use the arm-linux (files).
+
+Step 2. 
+
+open the terminal (ctrl & alt & t)
+
+Step 3.
+
+Type this command:- tar xvf dogecoin-1.14.7-x86_64-linux-gnu.tar.gz - hit enter.
+
+Step 4. 
+Then this command:- cd dogecoin-1.14.7/bin/ - hit enter.
+
+Step 5.
+Type this command:- ./dogecoind - hit enter - let it run for roughly 60 Seconds. 
+
+Step 6.
+Press ctrl + c to kill the process. 
+
+Step 7.
+Type this command -sudo cp dogecoin* /usr/bin/ (this is copying a file into your usr/bin/ (binaries) folder) It requires sudo (super user do) will need your password (it will not show on the screen just type it anyway..
+
+Step 8. 
+Type this command:- cd ~/.dogecoin/   (changing directory to hidden dogecoin folder so we can set up the config file and start script).
+
+Step 9. 
+Type this command:- nano dogecoin.conf   (creating a config file in nano text editor).
+
+Step 10.
+Copy and paste the text below into this file we are creating (dogecoin.conf) change the username and password (to anything you want just remember these details) ip to your own 
+internal ip for the machine you're running this on.
+
+rpcuser=username
+rpcpassword=password
+rpcallowip=127.0.0.1
+rpcallowip=Your IP here/10.0.0.102 - delete this and replace with your own IP (open another terminal and type the command - ip address - and it will be revealed to you)
+maxconnections=50
+rpcport=22555
+server=1
+
+Step 11.
+
+Press ctrl & X - Then hit Y to save all the changes to the dogecoin.conf file. 
+
+Step 12.
+
+Type this command: - nano start.sh ( opening nano text editor again but this time we are making a simple script to pull the config file from where its meant to).
+
+Step 13.
+
+Copy this and paste it in the file we are creating (start.sh) - ensure you delete "yourusernamehere" and replace with your username on the linux machine.    
+
+dogecoind -conf=/home/yourusernamehere/.dogecoin/dogecoin.conf -daemon     
+
+Step 14.
+
+Press ctrl & X - Then hit Y to save all the changes to the start.sh file.
+
+Step 15. 
+
+Then type this command - chmod +x start.sh - (this is changing the permissions on the script we have just written so it has executable permissions which will allow it to run)
+
+Step 16. 
+
+Type this command - ./start.sh
+
+Step 17. 
+
+Your node should be booting up and downlaoding all the historical block data we can check by entering a few commands in the terminal.
+
+Step 18.
+
+Open up a new terminal and type these commands : dogecoin-cli getblockcount  - hit enter - should show you what block your node is up to syncing with.
+                                                 dogecoin-cli getconnectioncount - hit enter - should show you how many active connections you have (if its on 8 you havent opened your ports on your router properly)
+
+Providing everything went ok you should have a fully functioning linux node up and running, and with a couple of extra steps youll be ready to inscribe..  
+
+
