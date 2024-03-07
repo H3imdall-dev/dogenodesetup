@@ -41,7 +41,7 @@ Step 5.
 Type this command:- ./dogecoind - hit enter - let it run for roughly 60 Seconds. 
 
 Step 6.
-Press ctrl + c to kill the process. 
+Press ctrl & c to kill the process. 
 
 Step 7.
 Type this command -sudo cp dogecoin* /usr/bin/ (this is copying a file into your usr/bin/ (binaries) folder) It requires sudo (super user do) will need your password (it will not show on the screen just type it anyway..
@@ -54,7 +54,7 @@ Type this command:- nano dogecoin.conf   (creating a config file in nano text ed
 
 Step 10.
 Copy and paste the text below into this file we are creating (dogecoin.conf) change the username and password (to anything you want just remember these details) ip to your own 
-internal ip for the machine you're running this on.
+internal ip for the machine you're running this on. (remember to copy -- this will be ctrl & C but when you are back in the terminal the paste function will be ctrl & alt & v) Just remember this will be very handy..
 
 rpcuser=username
 rpcpassword=password
