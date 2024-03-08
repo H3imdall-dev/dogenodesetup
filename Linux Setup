@@ -44,17 +44,19 @@ Step 6.
 Press ctrl & c to kill the process. 
 
 Step 7.
-Type this command -sudo cp dogecoin* /usr/bin/ (this is copying a file into your usr/bin/ (binaries) folder) It requires sudo (super user do) will need your password (it will not show on the screen just type it anyway..
+Type this command -sudo cp dogecoin* /usr/bin/ - hit enter (this is copying a file into your usr/bin/ (binaries) folder) 
+It requires sudo (super user do) will need your password (it will not show on the screen just type it anyway..
 
 Step 8. 
-Type this command:- cd ~/.dogecoin/   (changing directory to hidden dogecoin folder so we can set up the config file and start script).
+Type this command:- cd ~/.dogecoin/    -hit enter  (changing directory to hidden dogecoin folder so we can set up the config file and start script).
 
 Step 9. 
-Type this command:- nano dogecoin.conf   (creating a config file in nano text editor).
+Type this command:- nano dogecoin.conf   -hit enter   (creating a config file in nano text editor).
 
 Step 10.
-Copy and paste the text below into this file we are creating (dogecoin.conf) change the username and password (to anything you want just remember these details) ip to your own 
-internal ip for the machine you're running this on. (remember to copy -- this will be ctrl & C but when you are back in the terminal the paste function will be ctrl & alt & v) Just remember this will be very handy..
+Copy and paste the text below into this file we are creating (dogecoin.conf) change the username and password (to anything you want just remember these details) 
+Change ip to your own internal ip for the machine you're running this on. 
+(remember to copy -- this will be ctrl & C but when you are back in the terminal the paste function will be ctrl & alt & v) Just remember this will be very handy..
 
 rpcuser=username
 rpcpassword=password
@@ -66,11 +68,12 @@ server=1
 
 Step 11.
 
-Press ctrl & X - Then hit Y to save all the changes to the dogecoin.conf file. 
+Press ctrl & X - Then hit Y - hit enter to save all the changes to the dogecoin.conf file. 
 
 Step 12.
 
-Type this command: - nano start.sh ( opening nano text editor again but this time we are making a simple script to pull the config file from where its meant to).
+Type this command: - nano start.sh  - hit enter 
+(opening nano text editor again but this time we are making a simple script to pull the config file from where its meant to).
 
 Step 13.
 
@@ -80,15 +83,16 @@ dogecoind -conf=/home/yourusernamehere/.dogecoin/dogecoin.conf -daemon
 
 Step 14.
 
-Press ctrl & X - Then hit Y to save all the changes to the start.sh file.
+Press ctrl & X - Then hit Y - hit enter to save all the changes to the start.sh file.
 
 Step 15. 
 
-Then type this command - chmod +x start.sh - (this is changing the permissions on the script we have just written so it has executable permissions which will allow it to run)
+Then type this command - chmod +x start.sh  - hit enter  
+(this is changing the permissions on the script we have just written so it has executable permissions which will allow it to run)
 
 Step 16. 
 
-Type this command - ./start.sh
+Type this command - ./start.sh  - hit enter
 
 Step 17. 
 
