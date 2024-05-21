@@ -1,0 +1,79 @@
+How to set up dogecoin node on VPS
+
+Set up your vps service
+
+boot up a server with a minimum of 4 cores 180 gb of storage space 
+with linux ubuntu 22.04 LTS
+
+boot up the server
+
+enter this -
+
+sudo apt update && sudo apt upgrade 
+
+when promtped press Y and enter to install maintainer packages provided 
+
+when completed enter this -
+
+curl -L https://github.com/dogecoin/dogecoin/releases/download/v1.14.7/dogecoin-1.14.7-x86_64-linux-gnu.tar.gz | tar -xz
+
+Then this command:- 
+
+cd dogecoin-1.14.7/bin/ 
+
+Type this command:- 
+
+./dogecoind
+
+it will look like nothing is happening ...  let it run for roughly 30-60 Seconds. 
+Press ctrl & c to kill the process. 
+
+
+Type this command 
+
+sudo cp dogecoin* /usr/bin/ 
+
+Type this command:- 
+
+cd ~/.dogecoin/    
+
+Type this command:- 
+
+nano dogecoin.conf  
+
+Copy and paste the text below into this file we are creating (dogecoin.conf) (change the username and password to anything you want just remember these details) 
+
+rpcuser=username
+rpcpassword=password
+rpcallowip=127.0.0.1
+maxconnections=50
+rpcport=22555
+server=1
+
+Press ctrl & X - Then hit Y - hit enter to save all the changes to the dogecoin.conf file. 
+
+Type this command:
+
+nano start.sh   
+
+Copy this and paste it in the file we are creating (start.sh) - ensure you delete "yourusernamehere" and replace with your username on the linux machine. usually root on the VPS   
+
+dogecoind -conf=/home/yourusernamehere/.dogecoin/dogecoin.conf -daemon     
+
+Press ctrl & X - Then hit Y - hit enter to save all the changes to the start.sh file.
+
+Then type this command:
+
+chmod +x start.sh  
+
+Type this command - 
+
+./start.sh  
+
+Your node should be booting up and downlaoding all the historical block data we can check by entering a few commands in the terminal.
+
+dogecoin-cli getblockcount  - hit enter - should show you what block your node is up to syncing with.
+
+dogecoin-cli getconnectioncount - hit enter - should show you how many active connections you have 
+
+Providing everything went ok you should have a fully functioning linux node up and running, and with a couple of extra steps youll be ready to inscribe..  
