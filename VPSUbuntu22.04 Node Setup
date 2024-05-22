@@ -58,7 +58,7 @@ nano start.sh
 
 Copy this and paste it in the file we are creating (start.sh) - ensure you delete "yourusernamehere" and replace with your username on the linux machine. usually root on the VPS   
 
-dogecoind -conf=/home/yourusernamehere/.dogecoin/dogecoin.conf -daemon     
+dogecoind -conf=/yourusernamehere/.dogecoin/dogecoin.conf -daemon     
 
 Press ctrl & X - Then hit Y - hit enter to save all the changes to the start.sh file.
 
