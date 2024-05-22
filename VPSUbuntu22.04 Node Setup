@@ -13,6 +13,8 @@ sudo apt update && sudo apt upgrade
 
 when promtped press Y and enter to install maintainer packages provided 
 
+when menu pops up go up and down with the arrow keys and hit the space bar to select all options.. then hit enter 
+
 when completed enter this -
 
 curl -L https://github.com/dogecoin/dogecoin/releases/download/v1.14.7/dogecoin-1.14.7-x86_64-linux-gnu.tar.gz | tar -xz
