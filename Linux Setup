@@ -22,7 +22,7 @@ Dogecoin Install...
 
 Step 1. Download Dogecoin 
 
-go to https://github.com/dogecoin/dogecoin/releases/tag/v1.14.7 and click download.
+go to https://github.com/dogecoin/dogecoin/releases/tag/v1.14.8 and click download.
 
 If you're on a PC you can use one of the x86_64 binaries(files), if you're on a rapsberry Pi you can use the arm-linux (files).
 
@@ -32,10 +32,10 @@ open the terminal (ctrl & alt & t)
 
 Step 3.
 
-Type this command:- tar xvf dogecoin-1.14.7-x86_64-linux-gnu.tar.gz - hit enter.
+Type this command:- tar xvf dogecoin-1.14.8-x86_64-linux-gnu.tar.gz - hit enter.
 
 Step 4. 
-Then this command:- cd dogecoin-1.14.7/bin/ - hit enter.
+Then this command:- cd dogecoin-1.14.8/bin/ - hit enter.
 
 Step 5.
 Type this command:- ./dogecoind - hit enter - let it run for roughly 60 Seconds. 
