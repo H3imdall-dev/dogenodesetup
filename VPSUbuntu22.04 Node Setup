@@ -17,11 +17,11 @@ when menu pops up go up and down with the arrow keys and hit the space bar to se
 
 when completed enter this -
 
-curl -L https://github.com/dogecoin/dogecoin/releases/download/v1.14.7/dogecoin-1.14.7-x86_64-linux-gnu.tar.gz | tar -xz
+curl -L https://github.com/dogecoin/dogecoin/releases/download/v1.14.8/dogecoin-1.14.8-x86_64-linux-gnu.tar.gz | tar -xz
 
 Then this command:- 
 
-cd dogecoin-1.14.7/bin/ 
+cd dogecoin-1.14.8/bin/ 
 
 Type this command:- 
 
