@@ -1,108 +1,152 @@
-This Was fork of some original instructions from someone who helped me set up my node originally..i have explained and expanded on this to make it easier for people to read and digest this should help even the linux noob get a node up and running 
+Dogecoin Node Setup Guide 🚀
 
+A step-by-step guide to setting up a Dogecoin node, even if you're a Linux beginner.
+📌 Prerequisites
 
-Before we begin this process we will need to open up some ports on your router and set a static ip address for the machine to allow connections to and from your node this is pretty simple and I will help you through it 
+Before we begin, ensure you:
+✅ Have a stable internet connection
+✅ Have access to your router settings (needed for port forwarding)
+✅ Have a Linux machine (or Raspberry Pi) ready to install Dogecoin
+📡 Configuring Router (Port Forwarding & Static IP)
 
-Router port access and ip setup..
+To allow your node to connect properly, follow these steps:
+Step 1: Log into your router
 
-1 - Go to 192.168.0.1 in your web browser
-2 - Log in to your router (password for access is usually on the bottom of the router)
-3 - Go to DCHP settings - in here you should be able to see all machines connected to your router
-4 - Select your machine and then choose a static ip address.. usually will let you change the last 2 digits for example 192.168.0.69 (or whatever you want)
-    just ensure this becomes a static ip for this machine and remeber it we will need it for step7 now and step 10 later on ..
-5 - After this you want to go into the "port forwarding" section of the router (could be in the security tab)
-6 - Once here you want to create a new rule
-7 - In this rule you want to choose the fixed ip from step 4 and then enter the numbers 22556 in all available start and end ports, select Both .. From the protocol menu .. then enable it.. 
+    Open a web browser and go to:
 
-if you have followed these steps correctly and have the ports open and ip configured we will have no issues later on..
+    192.168.0.1
 
-Lets move on to the goodies ...
+    Log in (default password is usually on the router label).
 
-Dogecoin Install...
+Step 2: Assign a Static IP
 
-Step 1. Download Dogecoin 
+    Go to DHCP Settings.
+    Find your machine in the list of connected devices.
+    Assign it a static IP, e.g.:
 
-go to https://github.com/dogecoin/dogecoin/releases/tag/v1.14.8 and click download.
+    192.168.0.24
 
-If you're on a PC you can use one of the x86_64 binaries(files), if you're on a rapsberry Pi you can use the arm-linux (files).
+    Remember this IP, you'll need it later.
 
-Step 2. 
+Step 3: Open Port 22556
 
-open the terminal (ctrl & alt & t)
+    Go to Port Forwarding settings.
+    Create a new rule:
+        Internal IP: (Your static IP from Step 2)
+        Port: 22556 (start & end)
+        Protocol: Both (TCP & UDP)
+        Enable the rule
 
-Step 3.
+✅ Done! Your router is now configured.
+🐶 Dogecoin Node Installation
+Step 1: Download Dogecoin Core
 
-Type this command:- tar xvf dogecoin-1.14.8-x86_64-linux-gnu.tar.gz - hit enter.
+Go to the official GitHub repository:
+📥 Dogecoin Core v1.14.9
 
-Step 4. 
-Then this command:- cd dogecoin-1.14.8/bin/ - hit enter.
+Download the appropriate file:
 
-Step 5.
-Type this command:- ./dogecoind - hit enter - let it run for roughly 60 Seconds. 
+    PC/Linux → x86_64 binaries
+    Raspberry Pi → arm-linux binaries
 
-Step 6.
-Press ctrl & c to kill the process. 
+Step 2: Install Dogecoin Core
 
-Step 7.
-Type this command -sudo cp dogecoin* /usr/bin/ - hit enter (this is copying a file into your usr/bin/ (binaries) folder) 
-It requires sudo (super user do) will need your password (it will not show on the screen just type it anyway..
+    Open a terminal (Ctrl + Alt + T).
+    Extract the downloaded file:
 
-Step 8. 
-Type this command:- cd ~/.dogecoin/    -hit enter  (changing directory to hidden dogecoin folder so we can set up the config file and start script).
+tar xvf dogecoin-1.14.9-x86_64-linux-gnu.tar.gz
 
-Step 9. 
-Type this command:- nano dogecoin.conf   -hit enter   (creating a config file in nano text editor).
+Change directory:
 
-Step 10.
-Copy and paste the text below into this file we are creating (dogecoin.conf) change the username and password (to anything you want just remember these details) 
-Change ip to your own internal ip for the machine you're running this on. 
-(remember to copy -- this will be ctrl & C but when you are back in the terminal the paste function will be ctrl & alt & v) Just remember this will be very handy..
+cd dogecoin-1.14.9/bin/
 
-rpcuser=username
-rpcpassword=password
-rpcallowip=127.0.0.1
-rpcallowip=Your IP here/10.0.0.102 - delete this and replace with your own IP (open another terminal and type the command - ip address - and it will be revealed to you)
-maxconnections=50
-rpcport=22555
-server=1
+Start Dogecoin Core (let it run for 60 sec):
 
-Step 11.
+./dogecoind
 
-Press ctrl & X - Then hit Y - hit enter to save all the changes to the dogecoin.conf file. 
+Stop the process:
 
-Step 12.
+Ctrl + C
 
-Type this command: - nano start.sh  - hit enter 
-(opening nano text editor again but this time we are making a simple script to pull the config file from where its meant to).
+Move Dogecoin binaries to a system-wide location:
 
-Step 13.
+    sudo cp dogecoin* /usr/bin/
 
-Copy this and paste it in the file we are creating (start.sh) - ensure you delete "yourusernamehere" and replace with your username on the linux machine.    
+✅ Dogecoin Core is installed!
+⚙️ Configuring Dogecoin Node
+Step 1: Create the Dogecoin Configuration File
 
-dogecoind -conf=/home/yourusernamehere/.dogecoin/dogecoin.conf -daemon     
+    Go to the Dogecoin data directory:
 
-Step 14.
+cd ~/.dogecoin/
 
-Press ctrl & X - Then hit Y - hit enter to save all the changes to the start.sh file.
+Open the config file in nano:
 
-Step 15. 
+nano dogecoin.conf
 
-Then type this command - chmod +x start.sh  - hit enter  
-(this is changing the permissions on the script we have just written so it has executable permissions which will allow it to run)
+Copy & paste the following configuration (modify username/password/IP):
 
-Step 16. 
+    rpcuser=your_username
+    rpcpassword=your_password
+    rpcallowip=127.0.0.1
+    maxconnections=50
+    rpcport=22555
+    server=1
 
-Type this command - ./start.sh  - hit enter
+    Save the file (Ctrl + X, then Y, then Enter).
 
-Step 17. 
+✅ Configuration is set up!
+🚀 Starting the Dogecoin Node
+Step 1: Create a Start Script
 
-Your node should be booting up and downlaoding all the historical block data we can check by entering a few commands in the terminal.
+    Open a new file:
 
-Step 18.
+nano start.sh
 
-Open up a new terminal and type these commands : dogecoin-cli getblockcount  - hit enter - should show you what block your node is up to syncing with.
-                                                 dogecoin-cli getconnectioncount - hit enter - should show you how many active connections you have (if its on 8 you havent opened your ports on your router properly)
+Copy & paste the following:
 
-Providing everything went ok you should have a fully functioning linux node up and running, and with a couple of extra steps youll be ready to inscribe..  
+dogecoind -conf=/home/your_username/.dogecoin/dogecoin.conf -daemon
 
+(Replace your_username with your Linux username.)
 
+Save the file (Ctrl + X, then Y, then Enter).
+
+Make the script executable:
+
+chmod +x start.sh
+
+Run the script:
+
+    ./start.sh
+
+✅ Your node is now running! 🎉
+🔍 Checking Node Status
+
+Run the following commands to check your node:
+
+    Check block sync progress:
+
+dogecoin-cli getblockcount
+
+Check active connections:
+
+    dogecoin-cli getconnectioncount
+
+    If connections = 8, your port forwarding is incorrect!
+
+✅ Your node is fully operational! 🎯
+🎯 Summary
+✔️ What We Did:
+
+    Configured Router Port Forwarding
+    Installed Dogecoin Core
+    Created Configuration Files
+    Started Dogecoin Node
+    Verified Node Sync Status
+
+✅ You now have a fully functional Dogecoin Node! 🐶🚀
+🙋 Need Help?
+
+If you have any issues, feel free to open an issue or reach out to the Dogecoin community! 🐕✨
+
+🚀 Happy Mining & Supporting the Dogecoin Network! 🐶
