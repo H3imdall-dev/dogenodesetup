@@ -1,3 +1,5 @@
+![Linux Doge Node Setup for dummies](https://github.com/user-attachments/assets/4f333fd7-0efc-4bef-998c-97eb383c0a3b)
+
 # **Dogecoin Node Setup Guide 🚀**  
 *A step-by-step guide to setting up a Dogecoin node, even if you're a Linux beginner.*
 
@@ -34,7 +36,7 @@ To allow your node to connect properly, follow these steps:
 1. Go to **Port Forwarding** settings.
 2. Create a new rule:  
    - **Internal IP:** *(Your static IP from Step 2)*  
-   - **Port:** `22556` (start & end)  
+   - **Port:** `22555` (start) '22556'(end)  
    - **Protocol:** **Both (TCP & UDP)**  
    - **Enable the rule**  
 
