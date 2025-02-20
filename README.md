@@ -163,7 +163,7 @@ Run the following commands to check your node:
 ---
 
 ## **🙋 Need Help?**
-If you have any issues, feel free to **open an issue** or reach out to the **Dogecoin community**! 🐕✨  
+If you have any issues, feel free to **open an issue** or reach out to the **@Heimdall_bull** on X! 🐕✨  
 
 ---
 🚀 **Happy Mining & Supporting the Dogecoin Network!** 🐶
