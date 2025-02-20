@@ -27,9 +27,9 @@ To allow your node to connect properly, follow these steps:
 1. Go to **DHCP Settings**.
 2. Find your machine in the list of connected devices.
 3. Assign it a **static IP**, e.g.:  
-   ```
-   192.168.0.24
-   ```
+  
+  eg 192.168.0.24 set your own 
+
 4. **Remember this IP**, you'll need it later.
 
 ### **Step 3: Open Port 22556**
