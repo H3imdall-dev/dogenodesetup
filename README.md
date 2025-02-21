@@ -92,13 +92,14 @@ Download the appropriate file:
    ```bash
    nano dogecoin.conf
    ```
-3. **Copy & paste** the following configuration (modify username/password/IP):
+3. **Copy & paste** the following configuration (modify username/password/IP)(added txindex incase you want to do other developments or indexing:
    ```ini
    rpcuser=your_username
    rpcpassword=your_password
    rpcallowip=127.0.0.1
    maxconnections=50
    rpcport=22555
+   txindex=1
    server=1
    ```
 4. **Save the file** (`Ctrl + X`, then `Y`, then `Enter`).
